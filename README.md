@@ -8,13 +8,13 @@ tbd
 
 Getting Started
 ---------------
-Build the binary from source using the provided `Makefile`:
-`make`
+Build the binary from source using the provided `Makefile`:  
+`make`  
 
-Run the binary:
-`go run main.go`
-or
-`./pubgstats`
+Run the binary:  
+`go run main.go`  
+or  
+`./pubgstats`  
 
 Developing PUBGstats 
 --------------------
