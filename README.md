@@ -16,6 +16,6 @@ Run the binary:
 or
 `./pubgstats`
 
-Developing Leaf
----------------
+Developing PUBGstats 
+--------------------
 Feel free!
