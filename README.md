@@ -4,7 +4,7 @@ PUBGstats is is simple project that is designed to pull player statistics from t
 
 Documentation
 -------------
-tbd
+This project requires a TRN API key which can be had by following the link to the site, registering for an account and requesting an API key.
 
 Getting Started
 ---------------
@@ -12,9 +12,9 @@ Build the binary from source using the provided `Makefile`:
 `make`  
 
 Run the binary:  
-`go run main.go`  
+`go run main.go -k <your TRN api key>`  
 or  
-`./pubgstats`  
+`./pubgstats -k <your TRN api key>`  
 
 Developing PUBGstats 
 --------------------
