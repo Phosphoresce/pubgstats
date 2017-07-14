@@ -16,9 +16,6 @@ type Player struct {
 	Winrate float64
 }
 
-type Target struct {
-}
-
 func NewPlayer(name, apikey string) *Player {
 	// make api call to gather player information https://pubgtracker.com/site-api
 	// curl -X GET https://pubgtracker.com/api/profile/pc/phosphoric -H TRN-API-KEY:1234
@@ -45,6 +42,7 @@ func NewPlayer(name, apikey string) *Player {
 		// make sure game mode is solo and region is agg
 		if stats[i].(map[string]interface{})["Match"] == "solo" && stats[i].(map[string]interface{})["Region"] == "agg" {
 
+			// grab only map values related to player stats
 			ratings := stats[i].(map[string]interface{})["Stats"].([]interface{})
 			for j := 0; j < len(ratings); j++ {
 				// print all available stats and their values
@@ -94,25 +92,25 @@ func (p *Player) CompareStats(p2 *Player) {
 	if p.Kdr == p2.Kdr {
 		fmt.Println("Both players have equal K/D ratios.")
 	} else if p.Kdr > p2.Kdr {
-		fmt.Printf("%v has a %.2f percent better K/D ratio.\n", p.Name, p.Kdr/p2.Kdr*100)
+		fmt.Printf("%v has a %.2f %% better K/D ratio.\n", p.Name, p.Kdr/p2.Kdr*100)
 	} else if p.Kdr < p2.Kdr {
-		fmt.Printf("%v has a %.2f percent better K/D ratio.\n", p2.Name, p2.Kdr/p.Kdr*100)
+		fmt.Printf("%v has a %.2f %% better K/D ratio.\n", p2.Name, p2.Kdr/p.Kdr*100)
 	}
 
 	if p.Skill == p2.Skill {
 		fmt.Println("Both players have equal skill ratings.")
 	} else if p.Skill > p2.Skill {
-		fmt.Printf("%v has a %.2f percent better skill rating.\n", p.Name, p.Skill/p2.Skill*100)
+		fmt.Printf("%v has a %.2f %% better skill rating.\n", p.Name, p.Skill/p2.Skill*100)
 	} else if p.Skill < p2.Skill {
-		fmt.Printf("%v has a %.2f percent better skill rating.\n", p2.Name, p2.Skill/p.Skill*100)
+		fmt.Printf("%v has a %.2f %% better skill rating.\n", p2.Name, p2.Skill/p.Skill*100)
 	}
 
 	if p.Winrate == p2.Winrate {
 		fmt.Println("Both players have equal win rates.")
 	} else if p.Winrate > p2.Winrate {
-		fmt.Printf("%v has a %.2f percent better win rate.\n", p.Name, p.Winrate/p2.Winrate*100)
+		fmt.Printf("%v has a %.2f %% better win rate.\n", p.Name, p.Winrate/p2.Winrate*100)
 	} else if p.Winrate < p2.Winrate {
-		fmt.Printf("%v has a %.2f percent better win rate.\n", p2.Name, p2.Winrate/p.Winrate*100)
+		fmt.Printf("%v has a %.2f %% better win rate.\n", p2.Name, p2.Winrate/p.Winrate*100)
 	}
 }
 
